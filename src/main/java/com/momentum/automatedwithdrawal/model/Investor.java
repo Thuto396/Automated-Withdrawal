@@ -1,18 +1,20 @@
 package com.momentum.automatedwithdrawal.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table (name = "investors")
 public class Investor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String firstname;
+    @Column
     private String lastname;
+    @Column
     private String address;
+    @Column
     private String contact;
     //These values can be mapped to the database
     public Investor(Long id, String firstname, String lastname, String address, String contact) {
@@ -22,6 +24,8 @@ public class Investor {
         this.address = address;
         this.contact = contact;
     }
+
+
 
     public Long getId() {
         return id;
