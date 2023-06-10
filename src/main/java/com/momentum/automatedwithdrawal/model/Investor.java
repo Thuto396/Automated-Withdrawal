@@ -1,71 +1,40 @@
 package com.momentum.automatedwithdrawal.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Date;
 
 @Entity
-@Table (name = "investors")
+@Table(
+        name = "investors",
+        schema = "postgres"
+)//This provides the name of the table and database used
+@Getter
+@Setter//Lombok dependency that
+@NoArgsConstructor//
+@AllArgsConstructor
+//Lombok's dependency has annotations to create constructors,getters&setters to reduce boilerplate code
+
+
 public class Investor {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//Creates PRIMARY KEY
     private Long id;
-    @Column
+    @Column(nullable = false)//This ensures that the column is not null
     private String firstname;
-    @Column
+    @Column(nullable = false)
     private String lastname;
-    @Column
+    @Column(nullable = false)
     private String address;
-    @Column
-    private String contact;
+    @Column(nullable = false, length = 10)//specified length
+    private String mobile_number;
+    @Column(nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private Date date_of_birth;
     //These values can be mapped to the database
-    public Investor(Long id, String firstname, String lastname, String address, String contact) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.address = address;
-        this.contact = contact;
-    }
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-
 }

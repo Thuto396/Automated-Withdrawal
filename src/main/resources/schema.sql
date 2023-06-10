@@ -20,3 +20,4 @@ balance NUMERIC(10, 2) NOT NULL,
 FOREIGN KEY (investor_id) REFERENCES investors (id)
 );
 
+
