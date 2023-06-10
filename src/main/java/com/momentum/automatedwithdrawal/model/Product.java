@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.momentum.automatedwithdrawal.controller.InvestorController;
 
 @Entity
 @Getter
@@ -22,4 +23,7 @@ public class Product {
     private String name;
     @Column(nullable = false)
     private double balance ;
+
+
+
 }

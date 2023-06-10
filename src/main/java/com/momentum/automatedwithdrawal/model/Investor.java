@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 @Entity
@@ -23,7 +25,7 @@ import java.util.Date;
 public class Investor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Creates PRIMARY KEY
-    private Long id;
+    private int id;
     @Column(nullable = false)//This ensures that the column is not null
     private String firstname;
     @Column(nullable = false)
@@ -35,6 +37,21 @@ public class Investor {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     //These values can be mapped to the database
+
+
+
+    @Override
+    public String toString() {
+        return "Investor{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", mobile_number='" + mobile_number + '\'' +
+                ", email='" + email + '\'' +
+                ", date_of_birth=" + date_of_birth +
+                '}';
+    }
 }
